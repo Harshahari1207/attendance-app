@@ -1,15 +1,22 @@
 import "./App.css";
-import { NavBar } from "./components/navBar";
-import { Main } from "./components/main";
-import Footer from "./components/footer";
+import React from "react";
+import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
+
+import { HomePage } from "./components/homePage";
+import AdminLogin from "./components/adminLogin";
+import TeacherLogin from "./components/teacherLogin";
+
 
 function App() {
   return (
-    <div className="App">
-      <NavBar />
-      <Main />
-      <Footer />
-    </div>
+    <Router>
+        <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/admin" element={<AdminLogin />} />
+        <Route path="/teacher" element={<TeacherLogin />} />
+        {/* Other routes */}
+      </Routes>
+    </Router>
   );
 }
 
