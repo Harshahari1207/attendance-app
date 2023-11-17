@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  getDocs,
-  query,
-  where,
-  collection,
-  arrayContains,
-} from "firebase/firestore";
-import { auth, db } from "../firebaseConfig";
+import { getDocs, collection } from "firebase/firestore";
+import { db } from "../firebaseConfig";
 
 const TeacherLogin = () => {
   const [username, setUsername] = useState("");

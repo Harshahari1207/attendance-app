@@ -8,7 +8,6 @@ import StudentLogin from "./components/studentLogin";
 import Teacher from "./components/teacher";
 import TeacherEce from "./components/teacherEce";
 import TeacherCse from "./components/teacherCse";
-import AddData from "./components/addData";
 import Student from "./components/student";
 
 function App() {
@@ -22,7 +21,7 @@ function App() {
         <Route path="/student/:username" element={<Student />} />
         <Route path="/teacher/:username/ece" element={<TeacherEce />} />
         <Route path="/teacher/:username/cse" element={<TeacherCse />} />
-        <Route path="/add_data" element={<AddData />} />
+
         {/* Other routes */}
       </Routes>
     </Router>

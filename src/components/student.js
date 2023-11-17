@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import {
-  getDocs,
-  query,
-  where,
-  collection,
-  arrayContains,
-} from "firebase/firestore";
-import { auth, db } from "../firebaseConfig";
+import { getDocs, collection } from "firebase/firestore";
+import { db } from "../firebaseConfig";
 
 const Student = () => {
   const { username } = useParams();

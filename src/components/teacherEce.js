@@ -1,12 +1,6 @@
 import { useState, useEffect } from "react";
-import {
-  getDocs,
-  query,
-  where,
-  collection,
-  arrayContains,
-} from "firebase/firestore";
-import { auth, db } from "../firebaseConfig";
+import { getDocs, collection } from "firebase/firestore";
+import { db } from "../firebaseConfig";
 import { useParams } from "react-router-dom";
 const TeacherEce = () => {
   const [selectedOption, setSelectedOption] = useState(null);
