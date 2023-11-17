@@ -9,7 +9,7 @@ import {
 } from "firebase/firestore";
 import { auth, db } from "../firebaseConfig";
 
-const TeacherLogin = () => {
+const StudentLogin = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -20,26 +20,26 @@ const TeacherLogin = () => {
 
     try {
       // Fetch teacher data based on the entered username
-      const teachersdataRef = collection(db, "teachersData");
-      const querySnapshot = await getDocs(teachersdataRef);
-      let teacherFound = false;
-      const teachersData = [];
+      const studentsdataRef = collection(db, "studentsData");
+      const querySnapshot = await getDocs(studentsdataRef);
+      let studentFound = false;
+      const studentsData = [];
       querySnapshot.forEach((doc) => {
-        teachersData.push(doc.data());
+        studentsData.push(doc.data());
       });
-
-      const foundTeacher = teachersData[0].teachers.find((teacher) => {
-        // console.log(teacher.password);
-        if (teacher.username === username && teacher.passwordHash === password)
+      // console.log(studentsData[0].students);
+      const foundStudent = studentsData[0].students.find((student) => {
+        console.log(student.passwordHash + " " + password);
+        if (student.username === username && student.password === password)
           return true;
         else return false;
       });
       // console.log(foundTeacher);
-      if (!foundTeacher) {
-        setError("Teacher not found with the entered username or password.");
+      if (!foundStudent) {
+        setError("Student not found with the entered username or password.");
       } else {
         setError("");
-        window.location.href = `/teacher/${username}`;
+        window.location.href = `/student/${username}`;
         console.log("SignIn succussfull");
       }
     } catch (error) {
@@ -49,9 +49,9 @@ const TeacherLogin = () => {
   };
 
   return (
-    <div className="teacher-login">
-      <div className="teacher-login-form">
-        <h2>Teacher Login</h2>
+    <div className="student-login">
+      <div className="student-login-form">
+        <h2>Student Login</h2>
         <form onSubmit={handleLogin}>
           <div className="username-div">
             <label htmlFor="username">Username</label>
@@ -86,4 +86,4 @@ const TeacherLogin = () => {
   );
 };
 
-export default TeacherLogin;
+export default StudentLogin;

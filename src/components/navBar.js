@@ -1,21 +1,21 @@
 import React, { useState } from "react";
-import AdminLogin from "./adminLogin";
+import StudentLogin from "./studentLogin";
 import TeacherLogin from "./teacherLogin";
 import { Link } from "react-router-dom";
 
 export const NavBar = () => {
-  const [showAdminForm, setShowAdminForm] = useState(false);
+  const [showStudentForm, setShowStudentForm] = useState(false);
   const [showTeacherForm, setShowTeacherForm] = useState(false);
 
-  const openAdminForm = () => {
+  const openStudentForm = () => {
     console.log("Admin")
-    setShowAdminForm(true);
+    setShowStudentForm(true);
     setShowTeacherForm(false);
   };
 
   const openTeacherForm = () => {
     console.log("Teacher");
-    setShowAdminForm(false);
+    setShowStudentForm(false);
     setShowTeacherForm(true);
   };
 
@@ -25,14 +25,14 @@ export const NavBar = () => {
         <h1>Attendance-App</h1>
       </div>
       <div className="nav-buttons">
-        <button type="button" className="admin-nav-btn" onClick={openAdminForm}>
-          <Link to="/admin">Admin</Link>
-        </button>
         <button type="button" className="admin-nav-btn" onClick={openTeacherForm}>
-        <Link to="/teacher">Teacher</Link>
+        <Link to="/teacher_login">Teacher</Link>
+        </button>
+        <button type="button" className="admin-nav-btn" onClick={openStudentForm}>
+          <Link to="/student_login">Student</Link>
         </button>
       </div>
-      {showAdminForm && <AdminLogin />}
+      {showStudentForm && <StudentLogin />}
       {showTeacherForm && <TeacherLogin />}
     </div>
   );

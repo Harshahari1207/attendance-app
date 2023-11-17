@@ -43,7 +43,6 @@ body {
   z-index: 9999; /* Higher z-index to ensure it overlaps */
 }
 
-
 .nav {
   z-index: 5;
   height: 14vh;
@@ -56,11 +55,18 @@ body {
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
+.nav-heading h1{
+  font-size: 40px;
+  font-weight: bold;
+}
 .nav-buttons {
   display: flex;
   align-items: center;
   justify-content: space-around;
   gap: calc(var(--gap) * 6);
+}
+.nav-buttons button:hover {
+  text-decoration: underline;
 }
 
 #btn {
@@ -70,10 +76,12 @@ body {
   color: black;
 }
 
-input{
+input {
   border-radius: 5px;
 }
 .main {
+  background-image: url("../src/img/attendance-image.jpg");
+  background-size: cover;
   z-index: 0;
   height: 74vh;
 }
@@ -88,10 +96,9 @@ footer {
   color: var(--primary);
 }
 
-
-
 /* Teacher login page */
-.teacher-login, .admin-login{
+.teacher-login,
+.student-login {
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
   -webkit-backdrop-filter: blur(5px);
@@ -107,7 +114,8 @@ footer {
   z-index: 99;
 }
 
-.teacher-login-form, .admin-login-form{
+.teacher-login-form,
+.student-login-form {
   width: 70vw;
   height: 70vh;
   background-color: #1746a2;
@@ -119,19 +127,143 @@ footer {
   border-radius: 10px;
 }
 
-.teacher-login-form form, .admin-login-form form{
+.teacher-login-form form,
+.student-login-form form {
   display: flex;
   flex-direction: column;
   gap: 50px;
 }
 
-.email-div{
+.username-div {
   display: flex;
   justify-content: space-around;
   gap: 40px;
 }
-.password-div{
+.password-div {
   display: flex;
   justify-content: space-around;
   gap: 40px;
+}
+
+/* Teacher */
+.teacher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.teachMainHeading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 50px;
+  font-weight: bold;
+}
+.teachMainHeading button {
+  border: 1px solid black;
+  padding: 10px;
+  width: 200px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.teachMainHeading button:hover {
+  background-color: #9ba4b5;
+  color: #d5b4b4;
+}
+.footer {
+  margin-top: auto;
+  width: 100%;
+}
+
+.attendanceContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  gap: 30px;
+}
+.attendanceContainer h1 {
+  font-size: 40px;
+  font-weight: bold;
+}
+.attendanceHead {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.first {
+  width: 50px;
+}
+.fourth {
+  display: flex;
+  gap: 5px;
+}
+.attendanceHeadings {
+  font-size: 20px;
+  font-weight: bold;
+}
+.attendanceHeadings,
+.studentDet {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Student */
+.student {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+.studentMainHeading h2 {
+  font-size: 40px;
+  font-weight: bold;
+}
+.studentProfile {
+  background-color: #9ba4b5;
+  width: 50%;
+  border-radius: 20px;
+  padding: 20px;
+}
+.profileElement {
+  display: flex;
+  gap: 10px;
+}
+.profileElement h3 {
+  font-weight: bold;
+}
+.studentAttendanceDet {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.studentAttendanceDetHead{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.studentAttendanceDetHead h2 {
+  font-size: 30px;
+  font-weight: bold;
+}
+.table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+}
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  gap: 55px;
+}
+.row h3{
+  font-weight: bold;
 }
